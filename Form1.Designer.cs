@@ -42,7 +42,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.incubationDays = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.variety = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.radius = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.contacts = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -52,7 +56,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.daysForCuring)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incubationDays)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.variety)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radius)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contacts)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -63,7 +69,11 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.numericUpDown1);
+            this.splitContainer1.Panel1.Controls.Add(this.contacts);
+            this.splitContainer1.Panel1.Controls.Add(this.label7);
+            this.splitContainer1.Panel1.Controls.Add(this.radius);
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
+            this.splitContainer1.Panel1.Controls.Add(this.variety);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.incubationDays);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
@@ -258,23 +268,90 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Вероятность заражения";
             // 
-            // numericUpDown1
+            // variety
             // 
-            this.numericUpDown1.DecimalPlaces = 1;
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.variety.DecimalPlaces = 1;
+            this.variety.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(97, 254);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.variety.Location = new System.Drawing.Point(97, 254);
+            this.variety.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 12;
+            this.variety.Name = "variety";
+            this.variety.Size = new System.Drawing.Size(120, 22);
+            this.variety.TabIndex = 12;
+            this.variety.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(94, 289);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Радиус перемещения";
+            // 
+            // radius
+            // 
+            this.radius.Location = new System.Drawing.Point(97, 308);
+            this.radius.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.radius.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.radius.Name = "radius";
+            this.radius.Size = new System.Drawing.Size(120, 22);
+            this.radius.TabIndex = 14;
+            this.radius.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(94, 343);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Контактов в день";
+            // 
+            // contacts
+            // 
+            this.contacts.Location = new System.Drawing.Point(97, 362);
+            this.contacts.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.contacts.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.contacts.Name = "contacts";
+            this.contacts.Size = new System.Drawing.Size(120, 22);
+            this.contacts.TabIndex = 16;
+            this.contacts.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
@@ -295,7 +372,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.daysForCuring)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incubationDays)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.variety)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radius)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contacts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,7 +395,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown incubationDays;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown variety;
+        private System.Windows.Forms.NumericUpDown radius;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown contacts;
+        private System.Windows.Forms.Label label7;
     }
 }
 

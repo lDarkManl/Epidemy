@@ -49,6 +49,7 @@ namespace WindowsFormsApp4
 
         private void nextBtn_Click(object sender, EventArgs e)
         {
+            Random rnd = new Random();
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             graphics = Graphics.FromImage(pictureBox1.Image);
             List<(int x, int y)> sickCells = new List<(int x, int y)>();
@@ -64,31 +65,28 @@ namespace WindowsFormsApp4
                     }
                 }
             }
-
-            // Second pass: change all orthogonally surrounding healthy cells to sick
+            double num;
+            int rad = (int)radius.Value;
+            int contactsPerDay = (int)contacts.Value;
+            // Second pass: change all surrounding healthy cells to sick
             foreach (var (x, y) in sickCells)
             {
-                // List of orthogonal neighbors (up, down, left, right)
-                var neighbors = new List<(int x, int y)>
+                for (int i = x - rad; i <= x + rad; i++)
                 {
-                    (x - 1, y), // up
-                    (x + 1, y), // down
-                    (x, y - 1), // left
-                    (x, y + 1)  // right
-                };
-
-                foreach (var (nx, ny) in neighbors)
-                {
-                    if (nx >= 0 && nx < amountW && ny >= 0 && ny < amountH)
+                    for (int j = y - rad; j <= y + rad; j++)
                     {
-                        if (cells[nx, ny].getState() == States.Healthy)
+                        num = rnd.NextDouble();
+                        if (i >= 0 && i < amountW && j >= 0 && j < amountH)
                         {
-                            cells[nx, ny].changeAndPrintState(new Incubation((int)incubationDays.Value, (int)daysForCuring.Value), States.Incubation, graphics);
+                            if (cells[i, j].getState() == States.Healthy && num < (double)variety.Value)
+                            {
+                                cells[i, j].changeAndPrintState(new Incubation((int)incubationDays.Value, (int)daysForCuring.Value), States.Incubation, graphics);
+                            }
                         }
                     }
                 }
             }
-
+            
             // Print all cells again to update the image
             for (int i = 0; i < amountW; i++)
             {

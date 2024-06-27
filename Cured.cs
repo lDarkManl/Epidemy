@@ -7,18 +7,17 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp4
 {
-    internal class Healthy : Human
+    internal class Cured : Human
     {
         public override void printState(int posW, int posH, Graphics graphics)
         {
-            graphics.FillRectangle(Brushes.White, posW * 10, posH * 10, 10, 10);
+            graphics.FillRectangle(Brushes.Gray, posW * 10, posH * 10, 10, 10);
             Pen pen = new Pen(Color.Black);
             graphics.DrawRectangle(pen, posW * 10, posH * 10, 10, 10);
         }
-
         public override (Human, States) countState()
         {
-            return (new Healthy(), States.Healthy);
+            return (new Cured(), States.Cured);
         }
     }
 }

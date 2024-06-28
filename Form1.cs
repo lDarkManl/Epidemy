@@ -4,13 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp4
 {
-    enum States { Healthy, Sick, Cured, Incubation };
+    enum States { Healthy, Sick, Cured, Incubation, Dead };
     public partial class Form1 : Form
     {
         
@@ -37,9 +38,9 @@ namespace WindowsFormsApp4
             {
                 for (int j = 0; j < amountH; j++)
                 {
-                    cells[i, j] = new Cell(i, j, graphics);
+                    cells[i, j] = new Cell(i, j, graphics, (int)incubationDays.Value, (int)daysForCuring.Value, (int)dead.Value);
                     if (i == midW && j == midH)
-                        cells[i, j].changeState(new Incubation((int)incubationDays.Value, (int)daysForCuring.Value), States.Incubation);
+                        cells[i, j].changeState(new Incubation(), States.Incubation);
                     cells[i, j].countState();
                     cells[i, j].printCell(graphics);
 
@@ -68,25 +69,38 @@ namespace WindowsFormsApp4
             double num;
             int rad = (int)radius.Value;
             int contactsPerDay = (int)contacts.Value;
+            int countContacts = 0;
             // Second pass: change all surrounding healthy cells to sick
             foreach (var (x, y) in sickCells)
             {
+                // Collect all coordinate pairs within the radius
+                List<(int i, int j)> coordinates = new List<(int i, int j)>();
                 for (int i = x - rad; i <= x + rad; i++)
                 {
                     for (int j = y - rad; j <= y + rad; j++)
                     {
-                        num = rnd.NextDouble();
                         if (i >= 0 && i < amountW && j >= 0 && j < amountH)
                         {
-                            if (cells[i, j].getState() == States.Healthy && num < (double)variety.Value)
-                            {
-                                cells[i, j].changeAndPrintState(new Incubation((int)incubationDays.Value, (int)daysForCuring.Value), States.Incubation, graphics);
-                            }
+                            coordinates.Add((i, j));
                         }
                     }
                 }
+
+
+                // Iterate over the shuffled coordinates
+                foreach (var (i, j) in coordinates.OrderBy(_ => rnd.Next(0, coordinates.Count)))
+                {
+                    num = rnd.Next(0, 100);
+                    if (cells[i, j].getState() == States.Healthy && num <= (int)variety.Value)
+                    {
+                        cells[i, j].changeAndPrintState(new Incubation(), States.Incubation, graphics);
+                        countContacts++;
+                        if (countContacts == contactsPerDay)
+                            goto endLoops;
+                    }
+                }
             }
-            
+        endLoops:
             // Print all cells again to update the image
             for (int i = 0; i < amountW; i++)
             {

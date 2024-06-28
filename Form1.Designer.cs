@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dead = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.contacts = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.radius = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.variety = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.incubationDays = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.daysForCuring = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.nextBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,28 +49,22 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.daysForCuring = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.incubationDays = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.variety = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.radius = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.contacts = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dead)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contacts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radius)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.variety)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incubationDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daysForCuring)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmountH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmountW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.daysForCuring)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incubationDays)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.variety)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radius)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contacts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -69,6 +75,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.label9);
+            this.splitContainer1.Panel1.Controls.Add(this.numericUpDown1);
+            this.splitContainer1.Panel1.Controls.Add(this.dead);
+            this.splitContainer1.Panel1.Controls.Add(this.label8);
             this.splitContainer1.Panel1.Controls.Add(this.contacts);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.radius);
@@ -94,11 +104,182 @@
             this.splitContainer1.SplitterDistance = 341;
             this.splitContainer1.TabIndex = 0;
             // 
+            // dead
+            // 
+            this.dead.Location = new System.Drawing.Point(97, 415);
+            this.dead.Name = "dead";
+            this.dead.Size = new System.Drawing.Size(120, 22);
+            this.dead.TabIndex = 18;
+            this.dead.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(94, 396);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 16);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Смертность";
+            // 
+            // contacts
+            // 
+            this.contacts.Location = new System.Drawing.Point(97, 362);
+            this.contacts.Maximum = new decimal(new int[] {
+            2500,
+            0,
+            0,
+            0});
+            this.contacts.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.contacts.Name = "contacts";
+            this.contacts.Size = new System.Drawing.Size(120, 22);
+            this.contacts.TabIndex = 16;
+            this.contacts.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(94, 343);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Контактов в день";
+            // 
+            // radius
+            // 
+            this.radius.Location = new System.Drawing.Point(97, 308);
+            this.radius.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.radius.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.radius.Name = "radius";
+            this.radius.Size = new System.Drawing.Size(120, 22);
+            this.radius.TabIndex = 14;
+            this.radius.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(94, 289);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Радиус перемещения";
+            // 
+            // variety
+            // 
+            this.variety.Location = new System.Drawing.Point(97, 254);
+            this.variety.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.variety.Name = "variety";
+            this.variety.Size = new System.Drawing.Size(120, 22);
+            this.variety.TabIndex = 12;
+            this.variety.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(94, 235);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(166, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Вероятность заражения";
+            // 
+            // incubationDays
+            // 
+            this.incubationDays.Location = new System.Drawing.Point(97, 199);
+            this.incubationDays.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.incubationDays.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.incubationDays.Name = "incubationDays";
+            this.incubationDays.Size = new System.Drawing.Size(120, 22);
+            this.incubationDays.TabIndex = 10;
+            this.incubationDays.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(94, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(164, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Инкубационный период";
+            // 
+            // daysForCuring
+            // 
+            this.daysForCuring.Location = new System.Drawing.Point(97, 146);
+            this.daysForCuring.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.daysForCuring.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.daysForCuring.Name = "daysForCuring";
+            this.daysForCuring.Size = new System.Drawing.Size(120, 22);
+            this.daysForCuring.TabIndex = 8;
+            this.daysForCuring.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(94, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Дни выздоровления";
+            // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(114, 516);
+            this.nextBtn.Location = new System.Drawing.Point(123, 573);
             this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(91, 41);
+            this.nextBtn.Size = new System.Drawing.Size(91, 38);
             this.nextBtn.TabIndex = 6;
             this.nextBtn.Text = "Next";
             this.nextBtn.UseVisualStyleBackColor = true;
@@ -168,7 +349,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(114, 572);
+            this.button2.Location = new System.Drawing.Point(235, 573);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 38);
             this.button2.TabIndex = 1;
@@ -178,7 +359,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(114, 456);
+            this.button1.Location = new System.Drawing.Point(12, 572);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 39);
             this.button1.TabIndex = 0;
@@ -197,161 +378,36 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // numericUpDown1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(94, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Дни выздоровления";
-            // 
-            // daysForCuring
-            // 
-            this.daysForCuring.Location = new System.Drawing.Point(97, 146);
-            this.daysForCuring.Maximum = new decimal(new int[] {
-            10,
+            this.numericUpDown1.Location = new System.Drawing.Point(97, 466);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            2500,
             0,
             0,
             0});
-            this.daysForCuring.Minimum = new decimal(new int[] {
+            this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.daysForCuring.Name = "daysForCuring";
-            this.daysForCuring.Size = new System.Drawing.Size(120, 22);
-            this.daysForCuring.TabIndex = 8;
-            this.daysForCuring.Value = new decimal(new int[] {
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 19;
+            this.numericUpDown1.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // label4
+            // label9
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(94, 180);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Инкубационный период";
-            // 
-            // incubationDays
-            // 
-            this.incubationDays.Location = new System.Drawing.Point(97, 199);
-            this.incubationDays.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.incubationDays.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.incubationDays.Name = "incubationDays";
-            this.incubationDays.Size = new System.Drawing.Size(120, 22);
-            this.incubationDays.TabIndex = 10;
-            this.incubationDays.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(94, 235);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 16);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Вероятность заражения";
-            // 
-            // variety
-            // 
-            this.variety.DecimalPlaces = 1;
-            this.variety.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.variety.Location = new System.Drawing.Point(97, 254);
-            this.variety.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.variety.Name = "variety";
-            this.variety.Size = new System.Drawing.Size(120, 22);
-            this.variety.TabIndex = 12;
-            this.variety.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(94, 289);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 16);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Радиус перемещения";
-            // 
-            // radius
-            // 
-            this.radius.Location = new System.Drawing.Point(97, 308);
-            this.radius.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.radius.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.radius.Name = "radius";
-            this.radius.Size = new System.Drawing.Size(120, 22);
-            this.radius.TabIndex = 14;
-            this.radius.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(94, 343);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 16);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Контактов в день";
-            // 
-            // contacts
-            // 
-            this.contacts.Location = new System.Drawing.Point(97, 362);
-            this.contacts.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.contacts.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.contacts.Name = "contacts";
-            this.contacts.Size = new System.Drawing.Size(120, 22);
-            this.contacts.TabIndex = 16;
-            this.contacts.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(94, 447);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(151, 16);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Вместимость больниц";
             // 
             // Form1
             // 
@@ -367,14 +423,16 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dead)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contacts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radius)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.variety)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incubationDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daysForCuring)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmountH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmountW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.daysForCuring)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incubationDays)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.variety)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radius)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contacts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,6 +458,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown contacts;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown dead;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 

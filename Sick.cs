@@ -9,12 +9,6 @@ namespace WindowsFormsApp4
 {
     internal class Sick : Human
     {
-        private int countDays;
-
-        public Sick(int daysForCuring)
-        {
-            countDays = daysForCuring;
-        }
         public override void printState(int posW, int posH, Graphics graphics)
         {
             graphics.FillRectangle(Brushes.Red, posW * 10, posH * 10, 10, 10);
@@ -23,10 +17,18 @@ namespace WindowsFormsApp4
         }
         public override (Human, States) countState()
         {
-            if (countDays == 0)
+            if (diseaseDays == 0)
+            {
+                Random rnd = new Random();
+                if (rnd.Next(0, 100) <= deathProbability) 
+                {
+                    return (new Dead(), States.Dead);
+                }
                 return (new Cured(), States.Cured);
-            countDays--;
-            return (new Sick(countDays), States.Sick);
+            }
+
+            diseaseDays--;
+            return (new Sick(), States.Sick);
         }
     }
 }

@@ -13,13 +13,19 @@ namespace WindowsFormsApp4
         private States state;
         private int posW;
         private int posH;
+        private int incubationDays;
+        private int diseaseDays;
+        private int deathProbability;
 
-        public Cell(int posW, int posH, Graphics graphics)
+        public Cell(int posW, int posH, Graphics graphics, int incubationDays, int diseaseDays, int deathProbability)
         {
             humanState = new Healthy();
             state = States.Healthy;
             this.posW = posW;
             this.posH = posH;
+            this.incubationDays = incubationDays;
+            this.diseaseDays = diseaseDays;
+            this.deathProbability = deathProbability;
         }
 
         public void countState()
@@ -32,6 +38,7 @@ namespace WindowsFormsApp4
         public void changeState(Human cellState, States newState)
         {
             humanState = cellState;
+            humanState.setInfo(incubationDays, diseaseDays, deathProbability);
             state = newState;
         }
 

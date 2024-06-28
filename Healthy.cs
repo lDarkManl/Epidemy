@@ -16,9 +16,9 @@ namespace WindowsFormsApp4
             graphics.DrawRectangle(pen, posW * 10, posH * 10, 10, 10);
         }
 
-        public override (Human, States) countState()
+        public override (Human, States, int) countState(int availablePlaces)
         {
-            return (new Healthy(), States.Healthy);
+            return (new Healthy(), States.Healthy, availablePlaces);
         }
     }
 }

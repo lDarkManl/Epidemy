@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp4
 {
-    enum States { Healthy, Sick, Cured, Incubation, Dead };
+    enum States { Healthy, Sick, Cured, Incubation, Dead, Isolated };
     public partial class Form1 : Form
     {
         
@@ -19,6 +19,7 @@ namespace WindowsFormsApp4
         private int amountW;
         private int amountH;
         private Cell[,] cells;
+        private int availablePlaces;
 
         public Form1()
         {
@@ -27,23 +28,28 @@ namespace WindowsFormsApp4
 
         private void button1_Click(object sender, EventArgs e)
         {
+            nextBtn.Enabled = true;
+            button1.Enabled = false;
+            button2.Enabled = true;
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             amountW = (int)numAmountW.Value;
             amountH = (int)numAmountH.Value;
             int midW = amountW / 2;
             int midH = amountH / 2;
+            availablePlaces = (int)places.Value;
             cells = new Cell[amountW, amountH];
             graphics = Graphics.FromImage(pictureBox1.Image);
+            Random rnd = new Random();
             for (int i = 0; i < amountW; i++)
             {
                 for (int j = 0; j < amountH; j++)
                 {
-                    cells[i, j] = new Cell(i, j, graphics, (int)incubationDays.Value, (int)daysForCuring.Value, (int)dead.Value);
+                    cells[i, j] = new Cell(i, j, graphics, (int)incubationDays.Value, (int)daysForCuring.Value, (int)dead.Value, (int)isolationProbability.Value, rnd);
                     if (i == midW && j == midH)
                         cells[i, j].changeState(new Incubation(), States.Incubation);
-                    cells[i, j].countState();
+                    availablePlaces = cells[i, j].countState(availablePlaces);
+                    availablePlaces = availablePlaces > (int)places.Value ? (int)places.Value : availablePlaces;
                     cells[i, j].printCell(graphics);
-
                 }
             }
         }
@@ -60,7 +66,7 @@ namespace WindowsFormsApp4
             {
                 for (int j = 0; j < amountH; j++)
                 {
-                    if (cells[i, j].getState() == States.Incubation)
+                    if (cells[i, j].getState() == States.Incubation || cells[i, j].getState() == States.Sick)
                     {
                         sickCells.Add((i, j));
                     }
@@ -88,16 +94,21 @@ namespace WindowsFormsApp4
 
 
                 // Iterate over the shuffled coordinates
-                foreach (var (i, j) in coordinates.OrderBy(_ => rnd.Next(0, coordinates.Count)))
+                foreach (var (i, j) in coordinates.OrderBy(_ => rnd.Next()))
                 {
                     num = rnd.Next(0, 100);
-                    if (cells[i, j].getState() == States.Healthy && num <= (int)variety.Value)
+                    if ((cells[i, j].getState() == States.Healthy && num <= (int)variety.Value) || (cells[i, j].getState() == States.Isolated && num <= (int)variety.Value / 2))
                     {
-                        cells[i, j].changeAndPrintState(new Incubation(), States.Incubation, graphics);
-                        countContacts++;
-                        if (countContacts == contactsPerDay)
-                            goto endLoops;
+                        if (cells[i, j].getImmune() < (int)variety.Value)
+                        {
+                            cells[i, j].changeAndPrintState(new Incubation(), States.Incubation, graphics);
+                            countContacts++;
+                            if (countContacts == contactsPerDay)
+                                goto endLoops;
+                        }
+                        
                     }
+                    
                 }
             }
         endLoops:
@@ -106,7 +117,8 @@ namespace WindowsFormsApp4
             {
                 for (int j = 0; j < amountH; j++)
                 {
-                    cells[i, j].countState();
+                    availablePlaces = cells[i, j].countState(availablePlaces);
+                    availablePlaces = availablePlaces > (int)places.Value ? (int)places.Value : availablePlaces;
                     cells[i, j].printCell(graphics);
                 }
             }
@@ -114,6 +126,9 @@ namespace WindowsFormsApp4
 
         private void button2_Click(object sender, EventArgs e)
         {
+            nextBtn.Enabled = false;
+            button1.Enabled = true;
+            button2.Enabled = false;
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
     }

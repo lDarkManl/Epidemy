@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp4
 {
-    internal class Dead : Human
+    internal class Isolated : Human
     {
         public override void printState(int posW, int posH, Graphics graphics)
         {
-            graphics.FillRectangle(Brushes.Black, posW * 10, posH * 10, 10, 10);
+            graphics.FillRectangle(Brushes.Blue, posW * 10, posH * 10, 10, 10);
             Pen pen = new Pen(Color.Black);
             graphics.DrawRectangle(pen, posW * 10, posH * 10, 10, 10);
         }
 
         public override (Human, States, int) countState(int availablePlaces)
         {
-            return (new Dead(), States.Dead, availablePlaces);
+            return (new Isolated(), States.Isolated, availablePlaces);
         }
     }
 }

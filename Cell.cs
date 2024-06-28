@@ -16,23 +16,42 @@ namespace WindowsFormsApp4
         private int incubationDays;
         private int diseaseDays;
         private int deathProbability;
-
-        public Cell(int posW, int posH, Graphics graphics, int incubationDays, int diseaseDays, int deathProbability)
+        private int immune;
+        public Cell(int posW, int posH, Graphics graphics, int incubationDays, int diseaseDays, int deathProbability, int isolationProbability, Random rnd)
         {
-            humanState = new Healthy();
-            state = States.Healthy;
+            if (rnd.Next(0, 100) <= isolationProbability)
+            {
+                humanState = new Isolated();
+                state = States.Isolated;
+            }
+            else
+            {
+                humanState = new Healthy();
+                state = States.Healthy;
+            }
+            
+            
             this.posW = posW;
             this.posH = posH;
             this.incubationDays = incubationDays;
             this.diseaseDays = diseaseDays;
             this.deathProbability = deathProbability;
+            this.immune = rnd.Next(1, 75);
+
         }
 
-        public void countState()
+        public int getImmune()
         {
-            (Human newHumanState, States newState) = humanState.countState();
+            return immune;
+        }
+
+        public int countState(int availablePlaces)
+        {
+            (Human newHumanState, States newState, int places) = humanState.countState(availablePlaces);
             if (newState != state)
                 changeState(newHumanState, newState);
+            return places;
+
 
         }
         public void changeState(Human cellState, States newState)

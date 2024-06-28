@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Самоизоляция = new System.Windows.Forms.Label();
+            this.isolationProbability = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.places = new System.Windows.Forms.NumericUpDown();
             this.dead = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.contacts = new System.Windows.Forms.NumericUpDown();
@@ -49,12 +53,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.isolationProbability)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.places)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dead)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contacts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radius)).BeginInit();
@@ -64,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numAmountH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmountW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -75,8 +78,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.Самоизоляция);
+            this.splitContainer1.Panel1.Controls.Add(this.isolationProbability);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
-            this.splitContainer1.Panel1.Controls.Add(this.numericUpDown1);
+            this.splitContainer1.Panel1.Controls.Add(this.places);
             this.splitContainer1.Panel1.Controls.Add(this.dead);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
             this.splitContainer1.Panel1.Controls.Add(this.contacts);
@@ -103,6 +108,53 @@
             this.splitContainer1.Size = new System.Drawing.Size(1024, 642);
             this.splitContainer1.SplitterDistance = 341;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // Самоизоляция
+            // 
+            this.Самоизоляция.AutoSize = true;
+            this.Самоизоляция.Location = new System.Drawing.Point(94, 499);
+            this.Самоизоляция.Name = "Самоизоляция";
+            this.Самоизоляция.Size = new System.Drawing.Size(103, 16);
+            this.Самоизоляция.TabIndex = 22;
+            this.Самоизоляция.Text = "Самоизоляция";
+            // 
+            // isolationProbability
+            // 
+            this.isolationProbability.Location = new System.Drawing.Point(97, 518);
+            this.isolationProbability.Name = "isolationProbability";
+            this.isolationProbability.Size = new System.Drawing.Size(120, 22);
+            this.isolationProbability.TabIndex = 21;
+            this.isolationProbability.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(94, 447);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(151, 16);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Вместимость больниц";
+            // 
+            // places
+            // 
+            this.places.Location = new System.Drawing.Point(97, 466);
+            this.places.Maximum = new decimal(new int[] {
+            2500,
+            0,
+            0,
+            0});
+            this.places.Name = "places";
+            this.places.Size = new System.Drawing.Size(120, 22);
+            this.places.TabIndex = 19;
+            this.places.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // dead
             // 
@@ -277,11 +329,12 @@
             // 
             // nextBtn
             // 
+            this.nextBtn.Enabled = false;
             this.nextBtn.Location = new System.Drawing.Point(123, 573);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(91, 38);
             this.nextBtn.TabIndex = 6;
-            this.nextBtn.Text = "Next";
+            this.nextBtn.Text = "Шаг";
             this.nextBtn.UseVisualStyleBackColor = true;
             this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
@@ -349,11 +402,12 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(235, 573);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 38);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Clear";
+            this.button2.Text = "Очистить";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -363,7 +417,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 39);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Start";
+            this.button1.Text = "Начать";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -378,37 +432,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(97, 466);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            2500,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 19;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(94, 447);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(151, 16);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Вместимость больниц";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -417,12 +440,14 @@
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Эпидемия";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.isolationProbability)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.places)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dead)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contacts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radius)).EndInit();
@@ -432,7 +457,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numAmountH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmountW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -461,7 +485,9 @@
         private System.Windows.Forms.NumericUpDown dead;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown places;
+        private System.Windows.Forms.Label Самоизоляция;
+        private System.Windows.Forms.NumericUpDown isolationProbability;
     }
 }
 

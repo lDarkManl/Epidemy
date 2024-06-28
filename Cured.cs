@@ -15,9 +15,9 @@ namespace WindowsFormsApp4
             Pen pen = new Pen(Color.Black);
             graphics.DrawRectangle(pen, posW * 10, posH * 10, 10, 10);
         }
-        public override (Human, States) countState()
+        public override (Human, States, int) countState(int availablePlaces)
         {
-            return (new Cured(), States.Cured);
+            return (new Cured(), States.Cured, availablePlaces);
         }
     }
 }
